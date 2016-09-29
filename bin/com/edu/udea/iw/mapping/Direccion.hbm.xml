@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/09/2016 12:34:25 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.edu.udea.iw.dto.Direccion" table="direcciones">
+    	<composite-id name="id" class ="com.edu.udea.iw.dto.DireccionID">
+    		<key-property name="codigo">
+    			<column name="Codigo" precision="12"></column>
+    		</key-property>
+    		<key-many-to-one name="cliente" class="com.edu.udea.iw.dto.Cliente">
+				<column name="Cliente"></column>    			
+    		</key-many-to-one>
+    	</composite-id>
+    
+        
+        <property name="direccion" type="java.lang.String">
+            <column name="Direccion" length="120" not-null="true" />
+        </property>
+        
+        <property name="telefono" type="java.lang.String">
+            <column name="Telefono" length="45" not-null="true" />
+        </property>
+        
+        <many-to-one name="ciudad" class="com.edu.udea.iw.dto.Ciudad">
+        	<column name="Ciudad"></column>
+         </many-to-one>
+         
+          <property name="preferida" type="java.lang.String">
+            <column name="Preferida" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>
