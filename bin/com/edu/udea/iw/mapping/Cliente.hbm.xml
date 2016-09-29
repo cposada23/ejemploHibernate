@@ -38,5 +38,7 @@
         <property name="fechaEliminacion" type="java.util.Date">
             <column name="FechaELiminacion" not-null="false" />
         </property>
+        
+        <set name="direcciones"></set>
     </class>
 </hibernate-mapping>

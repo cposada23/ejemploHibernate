@@ -16,7 +16,7 @@ public class CiudadDadoImpHibernate implements CiudadDao {
 
 	@Override
 	public List<Ciudad> obtener() throws MyDaoExeption {
-		// TODO Auto-generated method stub
+		
 		Session session = null;
 		List<Ciudad> resultado = null;
 		

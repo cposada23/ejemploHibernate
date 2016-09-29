@@ -29,9 +29,7 @@ public class UsuarioDaoObtenerTest {
 		}
 	}
 	
-	@Test
-	public void testObtenerPorLog(){
-		UsuarioDao dao = new UsuarioDaoImpHibernate();
-	}
+	
+	
 
 }

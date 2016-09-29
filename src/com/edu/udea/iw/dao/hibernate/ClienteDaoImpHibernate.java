@@ -5,8 +5,10 @@ package com.edu.udea.iw.dao.hibernate;
 
 import java.util.List;
 
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 
 import com.edu.udea.iw.dao.ClienteDao;
@@ -30,11 +32,12 @@ public class ClienteDaoImpHibernate implements ClienteDao {
 		// TODO Auto-generated method stub
 		
 		Session session = null;
+		Transaction transaction = null;
 		try {
-			
 			session = DataSource.getInstance().getSession();
+			transaction = session.beginTransaction();
 			session.save(cliente); 
-			
+			transaction.commit();
 		} catch (HibernateException	 e) {
 			throw new MyDaoExeption(e);
 		}
