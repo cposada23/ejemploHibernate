@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -52,12 +53,14 @@ public class CiudadDadoImpHibernate implements CiudadDao {
 	@Override
 	public void guardar(Ciudad ciudad) throws MyDaoExeption {
 		Session session = null;
-		
+		Transaction transaction = null;
 		
 		try {
 			
 			session = DataSource.getInstance().getSession();
+			transaction = session.beginTransaction();
 			session.save(ciudad); 
+			transaction.commit();
 			
 		} catch (HibernateException	 e) {
 			throw new MyDaoExeption(e);

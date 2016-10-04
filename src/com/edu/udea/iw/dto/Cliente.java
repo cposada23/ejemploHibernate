@@ -22,6 +22,14 @@ public class Cliente {
 	private Usuario usuarioElimina;
 	private Date fechaEliminacion;
 	private Set<Direccion> direcciones;
+	
+	
+	public Set<Direccion> getDirecciones() {
+		return direcciones;
+	}
+	public void setDirecciones(Set<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
 	public String getCedula() {
 		return cedula;
 	}
